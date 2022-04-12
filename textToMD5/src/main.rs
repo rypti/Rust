@@ -18,7 +18,6 @@ fn main() -> std::io::Result<()> {
     for line in reader.lines() {
         if let Ok(line) = line {
             let digest = format!("{:x}", md5::compute(line.to_string()));
-            println!("{} : {}", line, digest);
             writeln!(&mut file_output, "{}", digest).expect("Can't write in file");
         }
     }
