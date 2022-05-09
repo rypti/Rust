@@ -19,8 +19,7 @@ fn main(){
     for line in reader.lines() {
         if let Ok(line) = line {
             let res = hash(MessageDigest::md5(), line.as_bytes()).unwrap();
-            //println!("{}",hex::encode(res));
-            writeln!(&mut file_output, "{:?}", hex::encode(res)).expect("Can't write in file");
+            writeln!(&mut file_output, "{}", hex::encode(res)).expect("Can't write in file");
         }
     }
 }
